@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 # Importing the Keras libraries and packages
 from keras.models import Sequential
 from keras.layers import Conv2D
