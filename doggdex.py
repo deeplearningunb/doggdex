@@ -56,6 +56,7 @@ classifier.add(Dense(units=32, activation='relu'))
 classifier.add(Dense(units=151, activation='softmax'))
 
 classifier.add(Dropout(rate=0.25))
+
 # Compiling the CNN
 classifier.compile(
     optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
@@ -87,7 +88,7 @@ classifier.fit_generator(training_set,
 
 # ========= SAVE MODEL ===============
 
-filename = 'training_oil_savemodel.sav'
+filename = 'dogginhos_savemodel.sav'
 file = open(filename, 'wb')
 pickle.dump(classifier, file)
 file.close()
