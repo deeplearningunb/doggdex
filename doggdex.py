@@ -33,42 +33,13 @@ from keras.layers import Dense
 # Initialising the CNN
 classifier = Sequential()
 
-# Step 1 - Convolution
-classifier.add(Conv2D(32, (3, 3), input_shape = (64, 64, 3), activation = 'relu'))
-
-# Step 2 - Pooling
-classifier.add(MaxPooling2D(pool_size = (2, 2)))
-classifier.add(Dropout(rate=0.25))
-
-
-# Adding a second convolutional layer
-classifier.add(Conv2D(32, (3, 3), activation = 'relu'))
-classifier.add(MaxPooling2D(pool_size = (2, 2)))
-
-
-# Adding a second convolutional layer
-classifier.add(Conv2D(32, (3, 3), activation = 'relu'))
-classifier.add(MaxPooling2D(pool_size = (2, 2)))
-
-
-# Adding a third convolutional layer
-classifier.add(Conv2D(128, (3, 3), activation = 'relu'))
-classifier.add(MaxPooling2D(pool_size = (2, 2)))
-classifier.add(Dropout(rate=0.25))
-
-
-# Step 3 - Flattening
-classifier.add(Flatten())
-
-# Step 4 - Full connection
-classifier.add(Dense(units = 128, activation = 'relu'))
-classifier.add(Dense(units = 64, activation = 'relu'))
+classifier.add(Flatten(input_shape = (64, 64, 3)))
+classifier.add(Dropout(0.5))
 classifier.add(Dense(units = 32, activation = 'relu'))
-
+classifier.add(Dropout(0.5))
 classifier.add(Dense(units = 120, activation = 'softmax'))
+classifier.summary()
 
-classifier.add(Dropout(rate=0.25))
-# Compiling the CNN
 classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
 # Part 2 - Fitting the CNN to the images
@@ -91,10 +62,11 @@ test_set = test_datagen.flow_from_directory('./dataset/test_dataset/test/',
                                             class_mode = 'categorical')
 
 classifier.fit_generator(training_set,
-                        steps_per_epoch = 20,
-                        epochs = 50,
+                        steps_per_epoch = 150,
+                        epochs = 10,
                         validation_data = test_set,
-                        validation_steps = 50)
+                        validation_steps = 200
+                        )
 
 # ========= SAVE MODEL ===============
 filename = 'training_oil_savemodel.sav'
