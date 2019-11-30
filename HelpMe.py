@@ -10,8 +10,8 @@ from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
 image_size  = 224
 num_classes = 120
 
-train_dir = './input/train/'
-test_dir  = './input/test/'
+train_dir = './input/train'
+test_dir  = './input/test'
 model_sav = './output/model.sav'
 weights   = './resnet50/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'
 
@@ -51,15 +51,14 @@ train_generator = data_generator.flow_from_directory(
 validation_generator = data_generator.flow_from_directory(
     test_dir,
     target_size=(image_size, image_size),
-    class_mode='categorical',
-    batch_size=100
+    class_mode='categorical'
 )
 
 model.fit_generator(
     train_generator,
-    steps_per_epoch=103,
+    steps_per_epoch=20,
     validation_data=validation_generator,
-    validation_steps=104
+    validation_steps=1
 )
 
 with open(model_sav, 'wb') as msave:
