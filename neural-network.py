@@ -59,22 +59,30 @@ model = models.Sequential()
 model.add(layers.Conv2D(
     32, (3, 3),
     activation='relu',
-    input_shape=(img_size, img_size, 3),
-    strides=2
+    input_shape=(img_size, img_size, 3)
 ))
-
 model.add(layers.MaxPooling2D((2, 2)))
 
 # 2nd convolutional layer
 model.add(layers.Conv2D(
-    32, (3, 3),
+    64, (3, 3),
     activation='relu'
 ))
+model.add(layers.MaxPooling2D((2, 2)))
 
+# 3rd convolutional layer
+model.add(layers.Conv2D(
+    64, (3, 3),
+    activation='relu'
+))
+model.add(layers.MaxPooling2D((2, 2)))
+
+# Flatten
 model.add(layers.Flatten())
 
-model.add(layers.Dense(128, activation='relu'))
+# Full connection
 model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dropout(0.5))
 
 model.add(layers.Dense(num_classes, activation='softmax'))
 
