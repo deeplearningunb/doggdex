@@ -1,0 +1,7 @@
+tensorflow
+numpy
+pandas
+Keras
+sklearn
+tqdm
+pillow

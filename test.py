@@ -7,7 +7,7 @@ import numpy as np
 def load_dataset(path, shuffle=True):
     data = load_files(path, shuffle=shuffle)
     files = data['filenames']
-    labels = np_utils.to_categorical(data['target'], 120) # There are 120 dog breeds
+    labels = np_utils.to_categorical(data['target'], 14) # There are 120 dog breeds
     return files, labels
 
 # load train and test datasets
@@ -41,6 +41,9 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 # pre-process the data for Keras
 train_tensors = paths_to_tensor(train_files)
+print('*'*100)
+print(test_files)
+print(train_files)
 test_tensors = paths_to_tensor(test_files)
 
 

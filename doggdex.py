@@ -18,7 +18,7 @@ from keras.preprocessing import image
 from keras import backend as K
 import numpy as np
 import pickle
-
+from keras.applications.inception_resnet_v2 import InceptionResNetV2, preprocess_input
  # Convolutional Neural Network
 
 # Part 1 - Building the CNN
@@ -44,7 +44,7 @@ classifier.add(Flatten(input_shape = X_train.shape[1:]))
 classifier.add(Dropout(0.5))
 classifier.add(Dense(units = 32, activation = 'relu'))
 classifier.add(Dropout(0.5))
-classifier.add(Dense(units = 120, activation = 'softmax'))
+classifier.add(Dense(units = 14, activation = 'softmax'))
 classifier.summary()
 
 classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
@@ -75,19 +75,20 @@ classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metric
 #                         validation_steps = 200
 #                         )
 
-test_image = image.load_img('test_image.png', target_size=(8, 8, 3))
+test_image = image.load_img('test/test/test_image.png', target_size=(299, 299))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis = 0)
 
 
-classifier.fit(
-    X_train,
-    test_image,
-    validation_split=0.1,
-    epochs=10,
-    batch_size=128,
-    verbose=1
-)
+#classifier.fit_generator(
+#    X_train,
+#    steps_per_epoch = 100,
+#    validation_data = Y_train,
+#    epochs=10,
+#    validation_steps = 20
+#)
+
+classifier.fit(X_train, Y_train, validation_split=0.1, epochs=50, batch_size=512, verbose=1)
 
 # ========= SAVE MODEL ===============
 filename = 'training_oil_savemodel.sav'
@@ -98,32 +99,52 @@ file.close()
 
 #=================== PREDICTION =================
 
-# train_datagen = ImageDataGenerator(rescale = 1./255,
+#train_datagen = ImageDataGenerator(rescale = 1./255,
 #                                         shear_range = 0.2,
 #                                         zoom_range = 0.2,
 #                                         horizontal_flip = True)
 #
-# test_datagen = ImageDataGenerator(rescale = 1./255)
+#test_datagen = ImageDataGenerator(rescale = 1./255)
 #
-# training_set = train_datagen.flow_from_directory('./dataset/training_dataset/train/',
+#training_set = train_datagen.flow_from_directory('./dataset/training_dataset/train/',
 #                                                 target_size = (64, 64),
 #                                                 batch_size = 128,
 #                                                 class_mode = 'categorical')
 #
-# test_set = test_datagen.flow_from_directory('./dataset/test_dataset/test/',
+#test_set = test_datagen.flow_from_directory('./test/',
 #                                             target_size = (64, 64),
 #                                             batch_size = 128,
 #                                             class_mode = 'categorical')
-#
-# file = open(filename, 'rb')
-# loaded_model = pickle.load(file)
-#
-# loss, metric = loaded_model.evaluate_generator(generator=test_set, steps=80)
-# print("Acurácia:" + str(metric))
 
-result = loaded_model.predict(test_image)
+#file = open(filename, 'rb')
+#loaded_model = pickle.load(file)
+loaded_model = classifier
+#loss, metric = loaded_model.evaluate_generator(generator=test_set, steps=80)
+#print("Acurácia:" + str(metric))
+test_image = np.vstack([test_image])
+
+model = InceptionResNetV2(include_top=False, weights='imagenet')
+
+result = loaded_model.predict(X_test)
 result = result[0]
-classes = training_set.class_indices
+#classes = training_set.class_indices
+#print(X_train.__dict__)
+print(result)
+print('*'*100)
+
+greater = -1
+value = -1
+i = 0
+
+for res in result:
+    if greater < res:
+        greater = res
+        value = i
+    i += 1
+
+print(greater)
+print(value)
+
 
 counter = 0
 for item in classes.keys():
