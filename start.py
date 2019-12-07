@@ -28,15 +28,14 @@ X_train = np.load('utils/bottleneck_features_train.npy')
 classifier = Sequential()
 
 classifier.add(Flatten(input_shape = X_train.shape[1:]))
-classifier.add(Dropout(0.5))
-classifier.add(Dense(units = 32, activation = 'relu'))
+classifier.add(Dense(units = 28, activation = 'relu'))
 classifier.add(Dropout(0.5))
 classifier.add(Dense(units = 14, activation = 'softmax'))
 classifier.summary()
 
 classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
-classifier.fit(X_train, Y_train, validation_split=0.1, epochs=10, batch_size=512, verbose=1)
+classifier.fit(X_train, Y_train, validation_split=0.1, epochs=50, batch_size=128, verbose=1)
 
 # Save model to be used in predict.py
 filename = 'utils/training_oil_savemodel.sav'
