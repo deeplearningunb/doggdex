@@ -48,7 +48,9 @@ result = result[0]
 greater = -1
 value = -1
 i = 0
+responses = []
 for res in result:
+    responses.append(res)
     if greater < res:
         greater = res
         value = i
@@ -58,11 +60,10 @@ import os
 #print([dog for dog in os.walk(os.getcwd() + '/dataset/test_dataset/')])
 dogs = [dog[0].split('/')[-1] for dog in os.walk(os.getcwd() + '/dataset/test_dataset/')]
 
-dogs = [dog for dog in dogs if dog != '']
+dogs = [dog for dog in dogs if dog != '' or dog != 'test']
 
 dogs.sort()
 
 print(dogs)
-
 print('Acurácia: ' + str(greater))
 print('Raça: ' + dogs[value])
