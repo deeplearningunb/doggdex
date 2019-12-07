@@ -73,7 +73,7 @@ To use the Doggdex you must first train the CNN using the command:
 python start.py
 ```
 
-and then classify the image in the folder /test/test by running the command:
+and then classify the image in the folder /assets/test by running the command:
 
 
 ```console
