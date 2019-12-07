@@ -9,6 +9,8 @@ A Pokedex for dogs.
 
 
 Pokedex is a eletronic devise from de world with the purpose of identify and categorize pokemons from a pictures. Its name comes from mixing the words Pokemon(Poke) and index(dex) and in japonese (the game's original linguage) its name means Pokemon Encyclopedia. So a Pokedex could be defined as a divice that takes photos of Pokemons and categorizes them. As shown in the name our goal in this project is to create a similar software but aimed at dogs(the real life Pokemons). 
+
+Our program currently identifies doggos from the following breeds: beagle, chihuahua, chow, cocker spaniel, eskimo dog, golden retriever, labrador retriever, pug, rottweiler, saint bernard, shih-tzu, siberian husky, standard poodle and yorkshire terrier.
 <br />
 
 
