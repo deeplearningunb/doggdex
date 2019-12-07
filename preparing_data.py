@@ -1,8 +1,7 @@
 # Organizing dataset into classes (folders)
 
 ## Getting all data files and classifing it
-
-filename = 'labels.csv'
+filename = 'utils/labels.csv'
 file = open(filename)
 
 data = {}
@@ -22,7 +21,6 @@ for row in rows:
 del data['breed']
 
 ## Creating all differents folders and separating files
-
 import os
 
 current_path = 'dataset/training_dataset/train/'
