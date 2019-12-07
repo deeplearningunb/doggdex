@@ -106,3 +106,4 @@ venv.bak/
 # Train model file generated
 
 *.npy
+*.sav
