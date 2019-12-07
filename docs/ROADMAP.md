@@ -1,5 +1,7 @@
 # Roadmap
 
+![image](./photo_2019-12-07_09-48-48.jpg)
+
 # Versão 1
 
 ## Rede neural inicial
