@@ -88,3 +88,7 @@ python predict.py
 
 # License
 DoggDex is licensed under [GPLV3](https://github.com/deeplearningunb/doggdex/blob/master/LICENSE).
+
+# References
+- https://github.com/liyenhsu/Dog-Breed-Identification/blob/master/train_predict.ipynb
+- https://github.com/deeplearningunb/pokedex/blob/master/pokedex.py
