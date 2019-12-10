@@ -72,9 +72,9 @@ python predict.py
 # Results
 
 <div class="grid-container">
-  <img src="utils/golden.jpg" alt="golden" style="width: 50%">
-  <img src="utils/shih-tzu.jpg" alt="golden" style="width: 50%">
-  <img src="utils/yorkshire.jpg" alt="golden" style="width: 50%">
+  <img src="utils/golden.jpg" alt="golden" width="250px">
+  <img src="utils/shih-tzu.jpg" alt="golden" width="250px">
+  <img src="utils/yorkshire.jpg" alt="golden" width="250px">
 </div>
 
 # License
