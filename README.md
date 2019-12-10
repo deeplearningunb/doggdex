@@ -9,8 +9,6 @@ A Pokedex for dogs.
 
 
 Pokedex is a eletronic devise from de world with the purpose of identify and categorize pokemons from a pictures. Its name comes from mixing the words Pokemon(Poke) and index(dex) and in japonese (the game's original linguage) its name means Pokemon Encyclopedia. So a Pokedex could be defined as a divice that takes photos of Pokemons and categorizes them. As shown in the name our goal in this project is to create a similar software but aimed at dogs(the real life Pokemons). 
-
-Our program currently identifies doggos from the following breeds: beagle, chihuahua, chow, cocker spaniel, eskimo dog, golden retriever, labrador retriever, pug, rottweiler, saint bernard, shih-tzu, siberian husky, standard poodle and yorkshire terrier.
 <br />
 
 
@@ -55,30 +53,9 @@ that is filled with randon numbers, and iterates through the input finding the d
 
 # Getting Started
 ## Installation
-before using the Doggdex you must have intalled in your machine:
-
- * python3
- * pip3
- 
-and you must also install or dependences using the command:
-
-```console
-pip install -r requirements.txt
-```
 
 ## Usage
-To use the Doggdex you must first train the CNN using the command:
 
-```console
-python start.py
-```
-
-and then classify the image in the folder /test/test by running the command:
-
-
-```console
-python predict.py
-```
 
 # Creators
 * [André Filho](https://github.com/andre-filho)
@@ -88,7 +65,3 @@ python predict.py
 
 # License
 DoggDex is licensed under [GPLV3](https://github.com/deeplearningunb/doggdex/blob/master/LICENSE).
-
-# References
-- https://github.com/liyenhsu/Dog-Breed-Identification/blob/master/train_predict.ipynb
-- https://github.com/deeplearningunb/pokedex/blob/master/pokedex.py
