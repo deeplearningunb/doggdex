@@ -69,5 +69,13 @@ python predict.py
 * [Guilherme Augusto](https://github.com/guiaugusto)
 * [Vitor Falcão](https://github.com/vitorfhc)
 
+# Results
+
+<div class="grid-container">
+  <img src="utils/golden.jpg" alt="golden" style="width: 50%">
+  <img src="utils/shih-tzu.jpg" alt="golden" style="width: 50%">
+  <img src="utils/yorkshire.jpg" alt="golden" style="width: 50%">
+</div>
+
 # License
 DoggDex is licensed under [GPLV3](https://github.com/deeplearningunb/doggdex/blob/master/LICENSE).
