@@ -86,10 +86,10 @@ python predict.py
 
 # Results
 
-<div style="justify-content: center">
-  <img src="utils/golden.jpg" alt="golden" >
-  <img src="utils/shih-tzu.jpg" alt="golden" >
-  <img src="utils/yorkshire.jpg" alt="golden" width="200px">
+<div class="grid-container">
+  <img src="utils/golden.jpg" alt="golden" width="250px">
+  <img src="utils/shih-tzu.jpg" alt="golden" width="250px">
+  <img src="utils/yorkshire.jpg" alt="golden" width="250px">
 </div>
 
 # License
