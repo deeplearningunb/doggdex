@@ -1,5 +1,5 @@
 # DoggDex
-A Pokedex for dogs. 
+A Pokedex for dogs.
 <br/>
 
 <p align="center">
@@ -8,7 +8,7 @@ A Pokedex for dogs.
 </p>
 
 
-Pokedex is a eletronic devise from de world with the purpose of identify and categorize pokemons from a pictures. Its name comes from mixing the words Pokemon(Poke) and index(dex) and in japonese (the game's original linguage) its name means Pokemon Encyclopedia. So a Pokedex could be defined as a divice that takes photos of Pokemons and categorizes them. As shown in the name our goal in this project is to create a similar software but aimed at dogs(the real life Pokemons). 
+Pokedex is a eletronic devise from de world with the purpose of identify and categorize pokemons from a pictures. Its name comes from mixing the words Pokemon(Poke) and index(dex) and in japonese (the game's original linguage) its name means Pokemon Encyclopedia. So a Pokedex could be defined as a divice that takes photos of Pokemons and categorizes them. As shown in the name our goal in this project is to create a similar software but aimed at dogs(the real life Pokemons).
 <br />
 
 
@@ -56,6 +56,12 @@ that is filled with randon numbers, and iterates through the input finding the d
 
 ## Usage
 
+and then classify the image in the folder /assets/test by running the command:
+
+
+```console
+python predict.py
+```
 
 # Creators
 * [André Filho](https://github.com/andre-filho)
